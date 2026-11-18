@@ -1,0 +1,27 @@
+plugins {
+    id 'com.android.application' version '8.12.1'
+}
+
+android {
+    namespace 'local.virtualkeyboard'
+    compileSdk 36
+    buildToolsVersion '36.0.0'
+
+    defaultConfig {
+        applicationId 'local.virtualkeyboard'
+        minSdk 28
+        targetSdk 36
+        versionCode 13
+        versionName '0.2.11'
+        manifestPlaceholders.activityCategory = providers.gradleProperty('activityCategory').orElse('productivity').get()
+        buildConfigField 'boolean', 'FULL_HID',
+                providers.gradleProperty('fullHid').orElse('false').get()
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures { buildConfig true }
+}
