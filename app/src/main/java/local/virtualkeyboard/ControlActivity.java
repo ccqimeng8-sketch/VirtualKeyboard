@@ -498,7 +498,8 @@ public final class ControlActivity extends Activity {
     }
 
     private LinearLayout makeGestureHelp() {
-        GestureGuide guide = GestureGuide.forDevice(Build.MANUFACTURER, Build.BRAND);
+        String appName = getString(R.string.app_name);
+        GestureGuide guide = GestureGuide.forDevice(Build.MANUFACTURER, Build.BRAND, appName);
         LinearLayout stack = settingsStack();
         stack.addView(settingsText("三指防误触", 20, INK));
         stack.addView(settingsText(guide.family() + " · Android " + Build.VERSION.RELEASE, 14, MUTED));
@@ -508,7 +509,7 @@ public final class ControlActivity extends Activity {
         test.setPadding(dp(10), 0, dp(10), 0);
         test.setBackground(background(KEY));
         stack.addView(test, new LinearLayout.LayoutParams(-1, dp(118)));
-        stack.addView(settingsText("如果截屏或 AI 抢走触摸，请查找只对 VirtualKeyboard 生效的系统选项。"
+        stack.addView(settingsText("如果截屏或 AI 抢走触摸，请查找只对 " + appName + " 生效的系统选项。"
                 + "也可以轻点左上角切换键盘。", 15, INK));
         stack.addView(settingsText(guide.steps(), 15, INK));
 

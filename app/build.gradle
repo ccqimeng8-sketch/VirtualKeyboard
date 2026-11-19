@@ -11,8 +11,8 @@ android {
         applicationId 'local.virtualkeyboard'
         minSdk 28
         targetSdk 36
-        versionCode 13
-        versionName '0.2.11'
+        versionCode 24
+        versionName '0.2.22'
         manifestPlaceholders.activityCategory = providers.gradleProperty('activityCategory').orElse('productivity').get()
         buildConfigField 'boolean', 'FULL_HID',
                 providers.gradleProperty('fullHid').orElse('false').get()

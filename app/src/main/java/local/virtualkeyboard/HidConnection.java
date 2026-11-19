@@ -87,8 +87,9 @@ final class HidConnection implements AutoCloseable {
     };
 
     private void register() {
+        String appName = context.getString(R.string.app_name);
         BluetoothHidDeviceAppSdpSettings sdp = new BluetoothHidDeviceAppSdpSettings(
-                "VirtualKeyboard", "Keyboard and multi-touch trackpad", "VirtualKeyboard",
+                appName, "Keyboard and multi-touch trackpad", appName,
                 BluetoothHidDevice.SUBCLASS1_KEYBOARD, descriptor);
         registering = profile.registerApp(sdp, null, null, main, callback);
         if (!registering) update("蓝牙 HID 注册失败，请检查手机是否支持");

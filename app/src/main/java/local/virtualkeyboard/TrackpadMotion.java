@@ -60,8 +60,8 @@ final class TrackpadMotion {
         lastFingers = fingers;
     }
 
-    int x(float source) { return Math.round(source + offsetX); }
-    int y(float source) { return Math.round(source + offsetY); }
+    float x(float source) { return source + offsetX; }
+    float y(float source) { return source + offsetY; }
 
     private void moveMultiFinger(TrackpadTuning tuning, int fingers, float x, float y,
                                  float dx, float dy, float unitsPerDpX, float unitsPerDpY) {
